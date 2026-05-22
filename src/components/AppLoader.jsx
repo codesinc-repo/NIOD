@@ -108,7 +108,7 @@ const AppLoader = ({ onComplete }) => {
       ctx.fillStyle = '#000000';
       ctx.font = '800 36px Outfit';
       ctx.textAlign = 'center';
-      ctx.fillText('N I O D', 256, 85);
+      ctx.fillText('Paresheyorganic', 256, 85);
       
       ctx.font = '600 16px Outfit';
       ctx.fillText('COPPER AMINO ISOLATE SERUM', 256, 130);
@@ -700,7 +700,7 @@ const AppLoader = ({ onComplete }) => {
       <div className="loader-ui-overlay">
         <div className="loader-brand-header" style={headerStyle}>
           <span className="loader-brand-tag">Dermal Formulations</span>
-          <h1 className="loader-main-title">N I O D</h1>
+          <h1 className="loader-main-title">Paresheyorganic</h1>
         </div>
 
         <div className="hud-panel" style={hudStyle}>

@@ -135,7 +135,7 @@ const Footer = () => (
                 </button>
               </form>
               <p className="mt-[24px] text-[10px] font-medium leading-[1.6] tracking-[-0.05em] text-[#777]">
-                *By providing your email address you are agreeing to receive email communications from DECIEM Inc., its affiliates, brands (The Ordinary, NIOD, and LOoPHA) and/or marketing partners. This can be changed at any time. Please refer to our <a href="#" className="text-black underline">Privacy Policy</a> and <a href="#" className="text-black underline">Terms of Use</a> for more details or <a href="#" className="text-black underline">Contact Us</a>.
+                *By providing your email address you are agreeing to receive email communications from DECIEM Inc., its affiliates, brands (paresheyorganic) and/or marketing partners. This can be changed at any time. Please refer to our <a href="#" className="text-black underline">Privacy Policy</a> and <a href="#" className="text-black underline">Terms of Use</a> for more details or <a href="#" className="text-black underline">Contact Us</a>.
               </p>
             </div>
           </section>
