@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { Link, NavLink, useNavigate } from 'react-router-dom';
 import { useCart } from '../lib/CartContext';
 import { useAuth } from '../lib/AuthContext';
+import logoUrl from '../assets/logops.png';
 
 const NAV_LINKS = [
   { to: '/',                                label: 'Home',             end: true },
@@ -76,8 +77,8 @@ const Header = () => {
             )}
           </button>
 
-          <Link to="/" className="font-black tracking-tight text-[18px] md:text-[20px] leading-none whitespace-nowrap">
-            Pareshey<span className="text-[#7a8a4d]">.</span>
+          <Link to="/" className="flex items-center shrink-0" aria-label="Pareshey Organics — Home">
+            <img src={logoUrl} alt="Pareshey Organics" className="h-10 sm:h-12 md:h-14 w-auto object-contain" />
           </Link>
 
           <nav className="hidden md:flex items-center justify-center gap-5 lg:gap-9 flex-1">

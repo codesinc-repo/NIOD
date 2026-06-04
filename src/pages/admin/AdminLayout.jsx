@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { NavLink, Outlet, useNavigate } from 'react-router-dom';
 import { useAdminAuth } from '../../lib/AdminAuthContext';
+import logoUrl from '../../assets/logops.png';
 
 const NAV = [
   { section: 'Overview', items: [
@@ -45,8 +46,8 @@ export default function AdminLayout() {
       {/* Sidebar */}
       <aside className={`${open ? 'translate-x-0' : '-translate-x-full'} lg:translate-x-0 fixed lg:static inset-y-0 left-0 z-40 w-64 bg-white border-r border-neutral-200 transition-transform overflow-y-auto`}>
         <div className="p-5 border-b border-neutral-200">
-          <div className="text-lg font-semibold">Pareshey Organic</div>
-          <div className="text-[10px] uppercase tracking-widest text-neutral-500 mt-0.5">Admin</div>
+          <img src={logoUrl} alt="Pareshey Organics" className="h-12 w-auto object-contain" />
+          <div className="text-[10px] uppercase tracking-widest text-neutral-500 mt-2">Admin</div>
           <div className="text-xs text-neutral-500 mt-0.5 truncate">{admin?.email}</div>
         </div>
         <nav className="p-3 space-y-5">

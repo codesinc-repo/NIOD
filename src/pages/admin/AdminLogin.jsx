@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { useNavigate, Navigate } from 'react-router-dom';
 import { useAdminAuth } from '../../lib/AdminAuthContext';
+import logoUrl from '../../assets/logops.png';
 
 export default function AdminLogin() {
   const { admin, login } = useAdminAuth();
@@ -28,8 +29,9 @@ export default function AdminLogin() {
   return (
     <div className="min-h-screen flex items-center justify-center bg-neutral-50 px-4">
       <div className="w-full max-w-md bg-white border border-neutral-200 rounded-2xl shadow-sm p-8">
-        <h1 className="text-2xl font-semibold mb-1">Admin Sign In</h1>
-        <p className="text-sm text-neutral-500 mb-6">Manage products, orders & content for paresheyorganic.com</p>
+        <img src={logoUrl} alt="Pareshey Organics" className="h-14 w-auto object-contain mb-6 mx-auto" />
+        <h1 className="text-2xl font-semibold mb-1 text-center">Admin Sign In</h1>
+        <p className="text-sm text-neutral-500 mb-6 text-center">Manage products, orders & content for paresheyorganic.com</p>
         <form onSubmit={onSubmit} className="space-y-4">
           <div>
             <label className="block text-xs font-medium text-neutral-700 mb-1">Email</label>
