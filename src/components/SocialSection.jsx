@@ -1,7 +1,9 @@
 import { useRef } from 'react';
-import { socialCards } from './data/homeData';
+import { useApi } from '../lib/hooks';
 
-const SocialSection = ({ cards = socialCards }) => {
+const SocialSection = ({ cards }) => {
+  const { data: apiCards = [] } = useApi(cards ? null : '/api/home/social-cards');
+  cards = cards || apiCards || [];
   const carouselRef = useRef(null);
 
   const scrollSocialCards = (direction) => {
@@ -26,7 +28,7 @@ const SocialSection = ({ cards = socialCards }) => {
 
         <div ref={carouselRef} className="no-scrollbar mt-[49px] flex gap-10 overflow-x-auto scroll-smooth pb-2">
           {cards.map((card) => (
-            <article key={card.title} className="w-[min(400px,82vw)] shrink-0 border border-[#d7d7d7] bg-white md:w-[400px]">
+            <article key={card.id || card.title} className="w-[min(400px,82vw)] shrink-0 border border-[#d7d7d7] bg-white md:w-[400px]">
               <div className="relative h-[342px] overflow-hidden bg-[#e8e8e8] md:h-[355px]">
                 <img className="h-full w-full object-cover" src={card.image} alt={card.title} />
                 <button
@@ -40,7 +42,7 @@ const SocialSection = ({ cards = socialCards }) => {
                 </button>
               </div>
               <div className="flex min-h-[84px] items-center gap-4 px-6 py-3">
-                <img className="h-[52px] w-[52px] object-contain" src={card.productImage} alt="" aria-hidden="true" />
+                <img className="h-[52px] w-[52px] object-contain" src={card.product_image || card.productImage} alt="" aria-hidden="true" />
                 <div>
                   <h3 className="text-[14px] font-semibold leading-[1.2] tracking-[-0.04em] text-black">{card.title}</h3>
                   <a href="#" className="mt-[18px] inline-block text-[14px] font-bold tracking-[-0.04em] text-black underline underline-offset-2">

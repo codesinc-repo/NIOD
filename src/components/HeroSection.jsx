@@ -10,29 +10,31 @@ const ProductLabel = ({ className = '', children }) => (
   </div>
 );
 
+import { Link } from 'react-router-dom';
+
 const HeroSection = () => (
   <section className="relative min-h-[520px] overflow-hidden bg-[#f4f4f4] font-['Inter',sans-serif] md:min-h-[475px]">
     <div className="absolute inset-0 bg-[radial-gradient(circle_at_58%_30%,rgba(255,255,255,0.9),transparent_37%),linear-gradient(90deg,#f7f7f7_0%,#f3f3f3_34%,#eeeeee_100%)]" />
 
     <div className="relative z-20 flex min-h-[520px] flex-col px-6 py-12 md:min-h-[475px] md:px-[8.25%] md:py-[86px]">
-      <div className="max-w-[330px] text-[#020202]">
-        <p className="text-[clamp(25px,2.3vw,31px)] font-normal leading-[0.95] tracking-[-0.055em]">The</p>
+      <div className="max-w-[360px] text-[#020202]">
+        <p className="text-[clamp(25px,2.3vw,31px)] font-normal leading-[0.95] tracking-[-0.055em]">Pareshey</p>
         <h1 className="mt-[-2px] text-[clamp(42px,3.9vw,53px)] font-black leading-[0.86] tracking-[-0.085em]">
-          Ordinary.
+          Organic.
         </h1>
-        <h2 className="mt-[18px] text-[clamp(31px,3vw,39px)] font-black leading-[1.1] tracking-[-0.045em] text-[#071b2d]">
-          The Markup
+        <h2 className="mt-[18px] text-[clamp(28px,3vw,36px)] font-black leading-[1.1] tracking-[-0.045em] text-[#071b2d]">
+          Clean rituals,
           <br />
-          Marche.
+          rooted in nature.
         </h2>
-        <p className="mt-[27px] text-[16px] font-normal leading-none tracking-[-0.03em] text-[#111827] md:text-[17px]">
-          Buy the ingredients, not the hype.
+        <p className="mt-[27px] text-[16px] font-normal leading-[1.4] tracking-[-0.03em] text-[#111827] md:text-[17px]">
+          Hand-blended organic skincare — dermatologist-tested, cruelty-free, delivered fresh across Pakistan.
         </p>
       </div>
 
-      <button className="mt-auto w-fit rounded-full border border-black px-[31px] py-[11px] text-[16px] font-semibold tracking-[-0.04em] text-[#050b18] transition-colors hover:bg-black hover:text-white md:mt-[108px]">
-        Learn More
-      </button>
+      <Link to="/category/best-sellers" className="mt-auto w-fit rounded-full border border-black px-[31px] py-[11px] text-[16px] font-semibold tracking-[-0.04em] text-[#050b18] transition-colors hover:bg-black hover:text-white md:mt-[108px]">
+        Shop the rituals
+      </Link>
     </div>
 
     <div className="pointer-events-none absolute bottom-[-54px] right-[-18px] z-10 h-[390px] w-[72vw] min-w-[610px] max-w-[980px] md:bottom-[-72px] md:right-[2.5%] md:h-[560px] md:w-[72vw] lg:right-[5.4%]">
@@ -49,21 +51,21 @@ const HeroSection = () => (
       </div>
 
       <ProductLabel className="left-[26%] top-[3%] w-[300px] -rotate-[8deg] md:w-[382px]">
-        Exotic Thirst Defying
+        Cold-pressed
         <br />
-        Hydration Vessel
+        Turmeric & Honey
       </ProductLabel>
       <ProductLabel className="right-[2%] top-[17%] w-[250px] -rotate-[8deg] md:w-[288px]">
-        100% Natural
+        Damask Rose
         <br />
-        Glow-Enhancing
+        Hydrating
         <br />
-        Vitality Orb
+        Toner
       </ProductLabel>
       <ProductLabel className="bottom-[1%] left-[47%] w-[244px] rotate-[10deg] md:w-[300px]">
-        All-Natural Magical
+        Saffron & Almond
         <br />
-        Energy-Boosting Bar
+        Night Cream
       </ProductLabel>
     </div>
 

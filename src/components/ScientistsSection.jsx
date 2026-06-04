@@ -1,7 +1,8 @@
-import { scientists } from './data/homeData';
+import { useApi } from '../lib/hooks';
 
 const ScientistsSection = () => {
-  const marqueeScientists = [...scientists, ...scientists];
+  const { data: scientists = [] } = useApi('/api/home/scientists');
+  const marqueeScientists = [...(scientists || []), ...(scientists || [])];
 
   return (
     <section className="bg-white font-['Inter',sans-serif] text-[#111827]">

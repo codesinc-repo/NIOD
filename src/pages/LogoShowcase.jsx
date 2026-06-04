@@ -13,9 +13,9 @@ export default function LogoShowcase() {
                     transition={{ duration: 0.8 }}
                 >
                     <h1 className="text-5xl font-bold bg-gradient-to-r from-amber-900 to-orange-700 bg-clip-text text-transparent mb-4">
-                        NIOD 3D Animated Logo
+                        Pareshey Organic 3D Animated Logo
                     </h1>
-                    <p className="text-lg text-amber-700">Luxury skincare brand identity with 3D animation</p>
+                    <p className="text-lg text-amber-700">Clean organic skincare brand identity with 3D animation</p>
                 </motion.div>
 
                 {/* Logo Showcase - Different Sizes */}

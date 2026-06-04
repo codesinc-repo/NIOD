@@ -1,7 +1,9 @@
-import { memberBenefits } from './data/homeData';
+import { Link } from 'react-router-dom';
+import { useApi } from '../lib/hooks';
 
 const MemberBenefitsSection = () => {
-  const marqueeBenefits = [...memberBenefits, ...memberBenefits];
+  const { data: memberBenefits = [] } = useApi('/api/home/member-benefits');
+  const marqueeBenefits = [...(memberBenefits || []), ...(memberBenefits || [])];
 
   return (
     <section className="overflow-hidden bg-white py-[72px] font-['Inter',sans-serif] text-[#111827]">
@@ -30,12 +32,12 @@ const MemberBenefitsSection = () => {
         </div>
 
         <div className="mt-[36px] flex flex-col items-center gap-[23px] px-5">
-          <button className="h-[43px] w-full max-w-[340px] rounded-full border border-black text-[16px] font-semibold tracking-[-0.045em] transition-colors hover:bg-black hover:text-white">
+          <Link to="/register" className="h-[43px] w-full max-w-[340px] rounded-full border border-black text-[16px] font-semibold tracking-[-0.045em] transition-colors hover:bg-black hover:text-white flex items-center justify-center">
             Create My Account
-          </button>
-          <a href="#" className="text-[13px] tracking-[-0.04em] text-[#4b5563] underline">
+          </Link>
+          <Link to="/login" className="text-[13px] tracking-[-0.04em] text-[#4b5563] underline">
             Already have an account? Log in.
-          </a>
+          </Link>
         </div>
       </div>
     </section>
