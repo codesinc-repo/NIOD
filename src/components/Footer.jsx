@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { api } from '../lib/api';
+import logoUrl from '../assets/logops.png';
 
 const footerGroups = [
   {
@@ -80,6 +81,22 @@ function NewsletterForm() {
 const Footer = () => (
   <footer className="border-t border-[#d9d9d9] bg-white font-['Inter',sans-serif] text-black">
     <div className="mx-auto max-w-[1140px] px-5 pb-[37px] pt-[45px] md:px-6 lg:px-0">
+      <div className="mb-10 flex flex-col sm:flex-row items-start sm:items-center gap-4 justify-between border-b border-neutral-100 pb-8">
+        <Link to="/" className="flex items-center" aria-label="Pareshey Organics — Home">
+          <img
+            src={logoUrl}
+            alt="Pareshey Organics"
+            width={180}
+            height={80}
+            style={{ height: 60, width: 'auto', maxHeight: 60 }}
+            className="object-contain"
+          />
+        </Link>
+        <p className="text-sm text-neutral-600 max-w-md leading-relaxed">
+          Clean, plant-based skincare blended in small batches in Lahore. Cash on Delivery across Pakistan.
+        </p>
+      </div>
+
       <div className="grid gap-10 lg:grid-cols-[1fr_1fr_1fr_1.4fr] lg:gap-[38px]">
         {footerGroups.map((group) => (
           <section key={group.title}>

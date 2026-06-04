@@ -78,7 +78,14 @@ const Header = () => {
           </button>
 
           <Link to="/" className="flex items-center shrink-0" aria-label="Pareshey Organics — Home">
-            <img src={logoUrl} alt="Pareshey Organics" className="h-10 sm:h-12 md:h-14 w-auto object-contain" />
+            <img
+              src={logoUrl}
+              alt="Pareshey Organics"
+              width={130}
+              height={56}
+              style={{ height: 'clamp(36px, 6vw, 56px)', width: 'auto', maxHeight: 56 }}
+              className="object-contain"
+            />
           </Link>
 
           <nav className="hidden md:flex items-center justify-center gap-5 lg:gap-9 flex-1">
