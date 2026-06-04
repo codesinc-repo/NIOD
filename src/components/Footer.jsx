@@ -94,36 +94,14 @@ const Footer = () => (
           </section>
         ))}
 
-        <nav className="space-y-[18px] text-[18px] font-medium leading-none tracking-[-0.055em]">
-          <FooterLink>Contact Us</FooterLink>
-          <FooterLink className="pt-[8px]">Track Order</FooterLink>
-          <FooterLink className="pt-[8px]">Sign In</FooterLink>
-          <FooterLink className="pt-[8px]">Store Locator</FooterLink>
-        </nav>
-
-        <div className="lg:pl-[30px]">
-          <section className="border-l border-[#dedede] pl-5 lg:min-h-[304px] lg:pl-[20px]">
-            <img
-              src="https://theordinary.com/on/demandware.static/Sites-deciem-Site/-/default/dwbeb5ebec/images/theordinary/footer-newsletter-img-TO.png"
-              alt="Newsletter"
-              className="h-[108px] w-full max-w-[342px] object-cover object-top"
-            />
-            <div className="max-w-[310px] pt-[14px]">
-              <h2 className="text-[20px] font-black leading-none tracking-[-0.06em]">Stay In Touch.</h2>
-              <form className="mt-[25px] flex h-[31px] items-start border-b border-[#a9a9a9]">
-                <label htmlFor="footer-email" className="sr-only">Email Address</label>
-                <input
-                  id="footer-email"
-                  type="email"
-                  placeholder="Email Address"
-                  className="min-w-0 flex-1 bg-transparent text-[12px] font-medium tracking-[-0.045em] text-black outline-none placeholder:text-[#777]"
-                />
-                <button type="submit" aria-label="Subscribe" className="px-1 text-[26px] leading-[18px] text-[#5b5b5b]">
-                  &rsaquo;
-                </button>
-              </form>
-              <p className="mt-[24px] text-[10px] font-medium leading-[1.6] tracking-[-0.05em] text-[#777]">
-                *By providing your email address you are agreeing to receive email communications from DECIEM Inc., its affiliates, brands (paresheyorganic) and/or marketing partners. This can be changed at any time. Please refer to our <a href="#" className="text-black underline">Privacy Policy</a> and <a href="#" className="text-black underline">Terms of Use</a> for more details or <a href="#" className="text-black underline">Contact Us</a>.
+        <div className="lg:pl-[10px]">
+          <section className="border-l border-[#dedede] pl-5 lg:min-h-[260px] lg:pl-[20px]">
+            <div className="max-w-[310px]">
+              <h2 className="text-[20px] font-black leading-none tracking-[-0.06em]">Stay in touch.</h2>
+              <p className="mt-3 text-[12px] text-[#5b5b5b] tracking-[-0.03em]">Routines, new arrivals and member-only offers — direct to your inbox.</p>
+              <NewsletterForm />
+              <p className="mt-[16px] text-[10px] font-medium leading-[1.6] tracking-[-0.05em] text-[#777]">
+                *By subscribing you agree to receive email from Pareshey Organic. Unsubscribe anytime. See our <Link to="/privacy" className="text-black underline">Privacy Policy</Link> and <Link to="/terms" className="text-black underline">Terms of Use</Link>, or <Link to="/contact" className="text-black underline">contact us</Link>.
               </p>
             </div>
           </section>

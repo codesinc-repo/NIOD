@@ -3,6 +3,7 @@ import { useNavigate, useParams } from 'react-router-dom';
 import { api } from '../../lib/api';
 import { useApi } from '../../lib/hooks';
 import { Btn, Card, PageTitle, TextField, TextArea, Select, Toggle } from './_shared';
+import ImageUploader from '../../components/admin/ImageUploader';
 
 const empty = { name: '', slug: '', parent_id: '', description: '', hero_eyebrow: '', hero_title: '', hero_copy: '', hero_image: '', sort_order: 0, is_active: true };
 
@@ -49,7 +50,7 @@ export default function AdminCategoryEdit() {
           <TextField label="Eyebrow text" value={form.hero_eyebrow || ''} onChange={(e) => set({ hero_eyebrow: e.target.value })} />
           <TextField label="Hero title" value={form.hero_title || ''} onChange={(e) => set({ hero_title: e.target.value })} />
           <TextArea label="Hero copy" value={form.hero_copy || ''} onChange={(e) => set({ hero_copy: e.target.value })} />
-          <TextField label="Hero image URL" value={form.hero_image || ''} onChange={(e) => set({ hero_image: e.target.value })} />
+          <ImageUploader label="Hero image" value={form.hero_image} onChange={(url) => set({ hero_image: url })} height={200} />
         </Card>
         <Card className="p-5 space-y-4">
           <Select label="Parent category" value={form.parent_id || ''} onChange={(e) => set({ parent_id: e.target.value })}

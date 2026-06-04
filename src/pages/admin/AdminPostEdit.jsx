@@ -3,6 +3,7 @@ import { useNavigate, useParams } from 'react-router-dom';
 import { api } from '../../lib/api';
 import { useApi } from '../../lib/hooks';
 import { Btn, Card, PageTitle, TextField, TextArea, Toggle } from './_shared';
+import ImageUploader from '../../components/admin/ImageUploader';
 
 const empty = { title: '', slug: '', excerpt: '', body: '', category: '', author: '', image: '', is_featured: false, is_published: true };
 
@@ -48,8 +49,7 @@ export default function AdminPostEdit() {
         <Card className="p-5 space-y-4">
           <TextField label="Category" value={form.category || ''} onChange={(e) => set({ category: e.target.value })} />
           <TextField label="Author" value={form.author || ''} onChange={(e) => set({ author: e.target.value })} />
-          <TextField label="Cover image URL" value={form.image || ''} onChange={(e) => set({ image: e.target.value })} />
-          {form.image && <img src={form.image} alt="" className="w-full aspect-video object-cover bg-neutral-50 rounded-lg border border-neutral-200" />}
+          <ImageUploader label="Cover image" value={form.image} onChange={(url) => set({ image: url })} height={180} />
           <Toggle label="Published" checked={form.is_published} onChange={(v) => set({ is_published: v })} />
           <Toggle label="Featured" checked={form.is_featured} onChange={(v) => set({ is_featured: v })} />
         </Card>

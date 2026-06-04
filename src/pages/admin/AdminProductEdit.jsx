@@ -3,6 +3,7 @@ import { Link, useNavigate, useParams } from 'react-router-dom';
 import { api } from '../../lib/api';
 import { useApi } from '../../lib/hooks';
 import { Btn, Card, PageTitle, TextField, TextArea, Select, Toggle } from './_shared';
+import ImageUploader from '../../components/admin/ImageUploader';
 
 const empty = {
   name: '', slug: '', category_id: '', tag: '', benefit: '', description: '',
@@ -118,8 +119,7 @@ export default function AdminProductEdit() {
           <Card className="p-5 space-y-4">
             <Select label="Category" value={form.category_id || ''} onChange={(e) => set({ category_id: e.target.value })}
               options={[{ value: '', label: '— No category —' }, ...((cats || []).map((c) => ({ value: c.id, label: c.name })))]} />
-            <TextField label="Hero image URL" value={form.image || ''} onChange={(e) => set({ image: e.target.value })} />
-            {form.image && <img src={form.image} alt="" className="w-full aspect-square object-contain bg-neutral-50 rounded-lg border border-neutral-200" />}
+            <ImageUploader label="Hero image" value={form.image} onChange={(url) => set({ image: url })} height={220} />
           </Card>
 
           <Card className="p-5 space-y-3">
@@ -170,14 +170,15 @@ function ImagesEditor({ images, onChange }) {
         <Btn type="button" onClick={add}>+ Add image</Btn>
       </div>
       {images.length === 0 && <div className="text-sm text-neutral-500">No gallery images. The hero image will be used.</div>}
-      {images.map((img, i) => (
-        <div key={i} className="grid grid-cols-12 gap-2 items-center">
-          <div className="col-span-2"><img src={img.url} alt="" className="w-full aspect-square object-cover rounded bg-neutral-50 border border-neutral-200" /></div>
-          <div className="col-span-7"><TextField placeholder="https://…" value={img.url} onChange={(e) => update(i, { url: e.target.value })} /></div>
-          <div className="col-span-2"><TextField placeholder="alt text" value={img.alt || ''} onChange={(e) => update(i, { alt: e.target.value })} /></div>
-          <div className="col-span-1"><Btn type="button" variant="danger" onClick={() => remove(i)}>×</Btn></div>
-        </div>
-      ))}
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+        {images.map((img, i) => (
+          <div key={i} className="border border-neutral-200 rounded-lg p-3 space-y-2">
+            <ImageUploader label={`Image ${i + 1}`} value={img.url} onChange={(url) => update(i, { url })} height={140} />
+            <TextField placeholder="Alt text (for accessibility)" value={img.alt || ''} onChange={(e) => update(i, { alt: e.target.value })} />
+            <Btn type="button" variant="danger" className="w-full" onClick={() => remove(i)}>Remove</Btn>
+          </div>
+        ))}
+      </div>
     </Card>
   );
 }

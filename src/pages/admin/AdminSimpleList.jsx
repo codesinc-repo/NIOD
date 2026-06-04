@@ -4,6 +4,7 @@ import { useEffect, useState } from 'react';
 import { api } from '../../lib/api';
 import { useApi } from '../../lib/hooks';
 import { Btn, Card, PageTitle, TextField, Toggle, EmptyState } from './_shared';
+import ImageUploader from '../../components/admin/ImageUploader';
 
 export default function AdminSimpleList({ resource, title, fields }) {
   const path = `/api/admin/${resource}`;
@@ -92,11 +93,18 @@ export default function AdminSimpleList({ resource, title, fields }) {
                 if (f.kind === 'bool') {
                   return <Toggle key={f.key} label={f.label} checked={!!val} onChange={(v) => setEditing({ ...editing, [f.key]: v })} />;
                 }
+                if (f.kind === 'image') {
+                  return <ImageUploader key={f.key} label={f.label} value={val} onChange={(url) => setEditing({ ...editing, [f.key]: url })} height={160} />;
+                }
                 return (
-                  <div key={f.key}>
-                    <TextField label={f.label} type={f.kind === 'number' ? 'number' : 'text'} required={!!f.required} value={val ?? ''} onChange={(e) => setEditing({ ...editing, [f.key]: f.kind === 'number' ? parseInt(e.target.value || '0', 10) : e.target.value })} />
-                    {f.kind === 'image' && val && <img src={val} alt="" className="mt-2 w-24 h-24 object-cover rounded border border-neutral-200" />}
-                  </div>
+                  <TextField
+                    key={f.key}
+                    label={f.label}
+                    type={f.kind === 'number' ? 'number' : 'text'}
+                    required={!!f.required}
+                    value={val ?? ''}
+                    onChange={(e) => setEditing({ ...editing, [f.key]: f.kind === 'number' ? parseInt(e.target.value || '0', 10) : e.target.value })}
+                  />
                 );
               })}
             </div>
