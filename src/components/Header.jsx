@@ -4,12 +4,13 @@ import { useCart } from '../lib/CartContext';
 import { useAuth } from '../lib/AuthContext';
 
 const NAV_LINKS = [
+  { to: '/',                                label: 'Home',             end: true },
   { to: '/category/best-sellers',           label: 'Bestsellers' },
   { to: '/category/newfeatured',            label: 'New & Featured' },
   { to: '/category/skincare',               label: 'Skincare' },
   { to: '/category/body-hair',              label: 'Body + Hair' },
   { to: '/category/skincare/skincare-sets', label: 'Sets & Collections' },
-  { to: '/blog',                            label: 'The O. Library' },
+  { to: '/blog',                            label: 'The Library' },
 ];
 
 const Header = () => {
@@ -66,8 +67,8 @@ const Header = () => {
       </div>
 
       <div className="h-[70px] md:h-[90px] flex items-center">
-        <div className="w-full flex items-center justify-between md:justify-center px-4 md:px-0">
-          <button className="md:hidden p-2" onClick={() => setIsMenuOpen(!isMenuOpen)}>
+        <div className="w-full flex items-center justify-between px-4 md:px-8 lg:px-12">
+          <button className="md:hidden p-2" onClick={() => setIsMenuOpen(!isMenuOpen)} aria-label="Toggle menu">
             {isMenuOpen ? (
               <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M18 6 6 18" /><path d="m6 6 12 12" /></svg>
             ) : (
@@ -75,32 +76,44 @@ const Header = () => {
             )}
           </button>
 
-          <Link to="/" className="md:hidden font-bold tracking-widest">PARESHEY</Link>
+          <Link to="/" className="font-black tracking-tight text-[18px] md:text-[20px] leading-none whitespace-nowrap">
+            Pareshey<span className="text-[#7a8a4d]">.</span>
+          </Link>
 
-          <div className="hidden md:flex items-center justify-center gap-8 lg:gap-14">
+          <nav className="hidden md:flex items-center justify-center gap-5 lg:gap-9 flex-1">
             {NAV_LINKS.map((n) => (
-              <NavLink key={n.to} to={n.to} end={n.to === '/'}
-                className={({ isActive }) => `border-b-4 pb-[27px] pt-[31px] text-[15px] font-bold tracking-tight transition-opacity hover:opacity-50 lg:text-[17px] ${isActive ? 'border-black' : 'border-transparent'}`}>
+              <NavLink key={n.to} to={n.to} end={n.end}
+                className={({ isActive }) => `border-b-4 pb-[27px] pt-[31px] text-[14px] font-bold tracking-tight transition-opacity hover:opacity-50 lg:text-[15px] ${isActive ? 'border-black' : 'border-transparent'}`}>
                 {n.label}
               </NavLink>
             ))}
-          </div>
+          </nav>
 
-          <Link to="/category/best-sellers" className="md:ml-10 border border-black rounded-full px-6 md:px-10 py-2.5 md:py-4 text-[14px] md:text-[16px] font-bold hover:bg-black hover:text-white transition-all duration-300 whitespace-nowrap">
-            Build My Regimen
+          <Link to="/category/best-sellers" className="hidden md:inline-flex border border-black rounded-full px-5 lg:px-8 py-2 lg:py-3 text-[13px] lg:text-[15px] font-bold hover:bg-black hover:text-white transition-all duration-300 whitespace-nowrap">
+            Shop now
           </Link>
         </div>
       </div>
 
       {isMenuOpen && (
-        <div className="absolute top-full left-0 w-full bg-white border-t border-gray-100 shadow-2xl md:hidden py-6 flex flex-col items-center gap-5">
+        <div className="absolute top-full left-0 w-full bg-white border-t border-gray-100 shadow-2xl md:hidden py-4 flex flex-col items-stretch md:hidden">
           {NAV_LINKS.map((n) => (
-            <Link key={n.to} to={n.to} onClick={() => setIsMenuOpen(false)}
-              className="text-[18px] font-bold tracking-tight py-2 w-full text-center hover:bg-gray-50">
+            <NavLink key={n.to} to={n.to} end={n.end} onClick={() => setIsMenuOpen(false)}
+              className={({ isActive }) => `text-[17px] font-bold tracking-tight py-3 w-full text-center hover:bg-gray-50 ${isActive ? 'bg-gray-50' : ''}`}>
               {n.label}
-            </Link>
+            </NavLink>
           ))}
-          {!user && <Link to="/login" onClick={() => setIsMenuOpen(false)} className="text-[16px] py-2 w-full text-center text-neutral-600">Sign in</Link>}
+          <div className="px-4 mt-3 pt-3 border-t border-neutral-100 flex flex-col gap-2">
+            {user ? (
+              <>
+                <Link to="/account" onClick={() => setIsMenuOpen(false)} className="py-2 text-center text-[15px] text-neutral-700">My account</Link>
+                <Link to="/account/orders" onClick={() => setIsMenuOpen(false)} className="py-2 text-center text-[15px] text-neutral-700">My orders</Link>
+              </>
+            ) : (
+              <Link to="/login" onClick={() => setIsMenuOpen(false)} className="py-2 text-center text-[15px] text-neutral-700">Sign in</Link>
+            )}
+            <Link to="/cart" onClick={() => setIsMenuOpen(false)} className="py-2 text-center text-[15px] text-neutral-700">Cart ({count})</Link>
+          </div>
         </div>
       )}
     </header>
