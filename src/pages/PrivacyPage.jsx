@@ -25,13 +25,13 @@ export default function PrivacyPage() {
       <p>We never sell your personal data. We don’t share it with third parties except where strictly required to deliver your order (couriers) or comply with law.</p>
 
       <h2 className="text-xl font-medium mt-8 mb-2">Your rights</h2>
-      <p>You can access, correct or delete your data anytime. Email <a href="mailto:hello@paresheyorganic.com" className="underline">hello@paresheyorganic.com</a> or use the “Sign in → Account” menu to manage your details.</p>
+      <p>You can access, correct or delete your data anytime. Email <a href="mailto:paresheyorganics@gmail.com" className="underline">paresheyorganics@gmail.com</a> or use the “Sign in → Account” menu to manage your details.</p>
 
       <h2 className="text-xl font-medium mt-8 mb-2">Cookies</h2>
       <p>We use a single cookie to keep your shopping cart and login session alive. We don’t use third-party tracking cookies.</p>
 
       <h2 className="text-xl font-medium mt-8 mb-2">Contact</h2>
-      <p>Questions about privacy? <a href="mailto:hello@paresheyorganic.com" className="underline">hello@paresheyorganic.com</a></p>
+      <p>Questions about privacy? <a href="mailto:paresheyorganics@gmail.com" className="underline">paresheyorganics@gmail.com</a></p>
     </LegalPage>
   );
 }

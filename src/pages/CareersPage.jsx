@@ -25,7 +25,7 @@ export default function CareersPage() {
       </div>
 
       <h2 className="text-xl font-medium mt-8 mb-2">How to apply</h2>
-      <p>Email a one-page CV and a short note to <a href="mailto:careers@paresheyorganic.com" className="underline">careers@paresheyorganic.com</a> with the role in the subject line. We read every email — replies usually within a week.</p>
+      <p>Email a one-page CV and a short note to <a href="mailto:paresheyorganics@gmail.com" className="underline">paresheyorganics@gmail.com</a> with the role in the subject line. We read every email — replies usually within a week.</p>
     </LegalPage>
   );
 }

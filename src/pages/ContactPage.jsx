@@ -34,7 +34,7 @@ export default function ContactPage() {
           <aside className="space-y-6 text-sm">
             <div>
               <div className="text-xs uppercase tracking-wider text-neutral-500 mb-1">Customer care</div>
-              <a href="mailto:hello@paresheyorganic.com" className="text-base hover:underline">hello@paresheyorganic.com</a>
+              <a href="mailto:paresheyorganics@gmail.com" className="text-base hover:underline">paresheyorganics@gmail.com</a>
             </div>
             <div>
               <div className="text-xs uppercase tracking-wider text-neutral-500 mb-1">Phone / WhatsApp</div>

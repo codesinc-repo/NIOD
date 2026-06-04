@@ -30,7 +30,7 @@ export default function TermsPage() {
       <p>These terms are governed by the laws of the Islamic Republic of Pakistan. Any disputes will be handled by the courts of Lahore.</p>
 
       <h2 className="text-xl font-medium mt-8 mb-2">9. Contact</h2>
-      <p><a href="mailto:hello@paresheyorganic.com" className="underline">hello@paresheyorganic.com</a></p>
+      <p><a href="mailto:paresheyorganics@gmail.com" className="underline">paresheyorganics@gmail.com</a></p>
     </LegalPage>
   );
 }

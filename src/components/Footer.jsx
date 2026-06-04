@@ -34,17 +34,17 @@ const footerGroups = [
 ];
 
 const socialLinks = [
-  { label: 'Facebook',  href: 'https://facebook.com/paresheyorganic',  icon: (
+  { label: 'Facebook',  href: 'https://facebook.com/paresheyorganics',  icon: (
     <svg viewBox="0 0 24 24" className="h-[27px] w-[27px]" fill="currentColor"><path d="M14.2 8.1V6.3c0-.9.6-1.1 1-1.1h2.6V1.1L14.2 1c-4 0-4.9 3-4.9 4.9v2.2H6v4.6h3.3V23h4.9V12.7h3.3l.4-4.6h-3.7Z" /></svg>
   ) },
-  { label: 'Instagram', href: 'https://instagram.com/paresheyorganic', icon: (
+  { label: 'Instagram', href: 'https://instagram.com/paresheyorganics', icon: (
     <svg viewBox="0 0 24 24" className="h-[26px] w-[26px]" fill="none" stroke="currentColor" strokeWidth="2.1"><rect x="3" y="3" width="18" height="18" rx="5" /><circle cx="12" cy="12" r="4" /><circle cx="17.5" cy="6.5" r="1.2" fill="currentColor" stroke="none" /></svg>
   ) },
-  { label: 'YouTube',   href: 'https://youtube.com/@paresheyorganic',  icon: (
-    <svg viewBox="0 0 30 22" className="h-[27px] w-[31px]" fill="currentColor"><path d="M29.4 4.1a3.8 3.8 0 0 0-2.7-2.7C24.3.8 15 .8 15 .8s-9.3 0-11.7.6A3.8 3.8 0 0 0 .6 4.1 39.5 39.5 0 0 0 0 11c0 2.3.2 4.7.6 6.9a3.8 3.8 0 0 0 2.7 2.7c2.4.6 11.7.6 11.7.6s9.3 0 11.7-.6a3.8 3.8 0 0 0 2.7-2.7c.4-2.2.6-4.6.6-6.9 0-2.3-.2-4.7-.6-6.9ZM12 15.4V6.6l7.8 4.4L12 15.4Z" /></svg>
-  ) },
-  { label: 'TikTok',    href: 'https://tiktok.com/@paresheyorganic',   icon: (
+  { label: 'TikTok',    href: 'https://www.tiktok.com/@pareshey.organics', icon: (
     <svg viewBox="0 0 24 24" className="h-[28px] w-[28px]" fill="currentColor"><path d="M16.8 2c.4 3 2.1 4.7 5.2 4.9v4.2a9.4 9.4 0 0 1-5.1-1.6v6.8c0 8.6-9.4 11.3-13.2 5.1-2.5-4-.9-11.1 7.1-11.4v4.4c-1 .2-2 .5-2.6 1.1-1.6 1.5-1.1 4.2 1 5.1 2 .9 3.5-.5 3.5-2.8V2h4.1Z" /></svg>
+  ) },
+  { label: 'Email',     href: 'mailto:paresheyorganics@gmail.com', icon: (
+    <svg viewBox="0 0 24 24" className="h-[26px] w-[26px]" fill="none" stroke="currentColor" strokeWidth="2"><rect x="3" y="5" width="18" height="14" rx="2" /><path d="m3 7 9 6 9-6" /></svg>
   ) },
 ];
 

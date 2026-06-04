@@ -47,7 +47,7 @@ const FAQ = [
       { q: 'Do I need an account to shop?',
         a: 'No — guest checkout is available. An account gets you order history, saved addresses, and a wishlist.' },
       { q: 'I forgot my password.',
-        a: 'Email hello@paresheyorganic.com and we’ll help you reset it.' },
+        a: 'Email paresheyorganics@gmail.com and we’ll help you reset it.' },
     ],
   },
 ];

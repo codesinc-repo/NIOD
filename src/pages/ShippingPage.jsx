@@ -24,7 +24,7 @@ export default function ShippingPage() {
       </ul>
 
       <h2 className="text-xl font-medium mt-8 mb-2">Need help?</h2>
-      <p>Email <a href="mailto:hello@paresheyorganic.com" className="underline">hello@paresheyorganic.com</a> or WhatsApp <a href="tel:+923001234567" className="underline">+92 300 1234567</a>. Please have your order number ready.</p>
+      <p>Email <a href="mailto:paresheyorganics@gmail.com" className="underline">paresheyorganics@gmail.com</a> or WhatsApp <a href="tel:+923001234567" className="underline">+92 300 1234567</a>. Please have your order number ready.</p>
     </LegalPage>
   );
 }
