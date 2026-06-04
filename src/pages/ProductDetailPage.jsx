@@ -70,7 +70,7 @@ export default function ProductDetailPage() {
               {images[activeImg] && <img src={images[activeImg]} alt="" className="w-full h-full object-contain" />}
             </div>
             {images.length > 1 && (
-              <div className="grid grid-cols-5 gap-2 mt-3">
+              <div className="grid grid-cols-4 sm:grid-cols-5 gap-2 mt-3">
                 {images.map((u, i) => (
                   <button key={i} onClick={() => setActiveImg(i)} className={`aspect-square rounded-lg overflow-hidden border ${i === activeImg ? 'border-neutral-900' : 'border-neutral-200'}`}>
                     <img src={u} alt="" className="w-full h-full object-cover" />

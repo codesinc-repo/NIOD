@@ -118,7 +118,7 @@ export default function CheckoutPage() {
                 <input required placeholder="Full name" value={form.full_name} onChange={(e) => set({ full_name: e.target.value })} className="w-full px-3 py-2.5 border border-neutral-300 rounded-lg text-sm" />
                 <input required placeholder="Address line 1" value={form.line1} onChange={(e) => set({ line1: e.target.value })} className="w-full px-3 py-2.5 border border-neutral-300 rounded-lg text-sm" />
                 <input placeholder="Apartment, suite, etc. (optional)" value={form.line2} onChange={(e) => set({ line2: e.target.value })} className="w-full px-3 py-2.5 border border-neutral-300 rounded-lg text-sm" />
-                <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
+                <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3">
                   <input required placeholder="City" value={form.city} onChange={(e) => set({ city: e.target.value })} className="w-full px-3 py-2.5 border border-neutral-300 rounded-lg text-sm" />
                   <input placeholder="State / Province" value={form.state} onChange={(e) => set({ state: e.target.value })} className="w-full px-3 py-2.5 border border-neutral-300 rounded-lg text-sm" />
                   <input placeholder="Postal code" value={form.postal_code} onChange={(e) => set({ postal_code: e.target.value })} className="w-full px-3 py-2.5 border border-neutral-300 rounded-lg text-sm" />

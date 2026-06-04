@@ -21,20 +21,21 @@ export default function CartPage() {
             <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
               <div className="lg:col-span-2 divide-y divide-neutral-200 border-y border-neutral-200">
                 {items.map((it) => (
-                  <div key={it.id} className="py-5 flex gap-4 items-center">
-                    <img src={it.product_image} alt="" className="w-20 h-20 sm:w-24 sm:h-24 rounded-lg bg-neutral-50 object-cover" />
-                    <div className="flex-1 min-w-0">
+                  <div key={it.id} className="py-4 sm:py-5 grid grid-cols-[auto_1fr] sm:grid-cols-[auto_1fr_auto_auto_auto] gap-x-3 sm:gap-4 gap-y-2 items-center">
+                    <img src={it.product_image} alt="" className="w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 rounded-lg bg-neutral-50 object-cover row-span-2 sm:row-span-1" />
+                    <div className="min-w-0 col-start-2 sm:col-start-2">
                       <Link to={`/product/${it.product_slug}`} className="text-sm sm:text-base font-medium hover:underline block">{it.product_name}</Link>
                       {it.size_label && <div className="text-xs text-neutral-500 mt-0.5">{it.size_label}</div>}
-                      <div className="text-sm text-neutral-700 mt-1">{formatMoney(it.unit_price)}</div>
+                      <div className="text-sm text-neutral-700 mt-1 sm:hidden">{formatMoney(it.unit_price)}</div>
+                      <div className="text-sm text-neutral-700 mt-1 hidden sm:block">{formatMoney(it.unit_price)}</div>
                     </div>
-                    <div className="flex items-center gap-1.5 border border-neutral-300 rounded-full">
-                      <button onClick={() => updateQty(it.id, it.qty - 1)} className="w-8 h-8 hover:bg-neutral-100 rounded-full text-lg leading-none">−</button>
+                    <div className="col-start-2 sm:col-start-3 flex items-center gap-1.5 border border-neutral-300 rounded-full w-fit">
+                      <button onClick={() => updateQty(it.id, it.qty - 1)} className="w-8 h-8 hover:bg-neutral-100 rounded-full text-lg leading-none" aria-label="Decrease">−</button>
                       <span className="text-sm w-6 text-center">{it.qty}</span>
-                      <button onClick={() => updateQty(it.id, it.qty + 1)} className="w-8 h-8 hover:bg-neutral-100 rounded-full text-lg leading-none">+</button>
+                      <button onClick={() => updateQty(it.id, it.qty + 1)} className="w-8 h-8 hover:bg-neutral-100 rounded-full text-lg leading-none" aria-label="Increase">+</button>
                     </div>
-                    <div className="text-sm font-medium w-20 sm:w-24 text-right">{formatMoney(Number(it.unit_price) * it.qty)}</div>
-                    <button onClick={() => removeItem(it.id)} className="text-xs text-neutral-500 hover:text-red-600">Remove</button>
+                    <div className="text-sm font-medium ml-auto sm:ml-0 sm:w-20 md:w-24 text-right whitespace-nowrap">{formatMoney(Number(it.unit_price) * it.qty)}</div>
+                    <button onClick={() => removeItem(it.id)} className="text-xs text-neutral-500 hover:text-red-600 ml-auto sm:ml-0 whitespace-nowrap">Remove</button>
                   </div>
                 ))}
               </div>

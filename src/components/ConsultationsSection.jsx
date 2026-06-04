@@ -16,11 +16,11 @@ const ConsultationsSection = () => (
         <p className="mx-auto mt-[27px] max-w-[530px] text-[20px] leading-[1.35] tracking-[-0.06em] text-black">
           One-on-one consultations have arrived. Book an appointment for expert guidance and personalized recommendations tailored to your skin's needs.
         </p>
-        <div className="mt-[34px] flex flex-wrap justify-center gap-[50px]">
-          <button className="min-w-[142px] rounded-full border border-black px-8 py-[11px] text-[15px] font-bold tracking-[-0.045em] transition-colors hover:bg-black hover:text-white">
+        <div className="mt-[34px] flex flex-col items-stretch sm:flex-row sm:flex-wrap sm:justify-center gap-3 sm:gap-[30px] md:gap-[50px]">
+          <button className="w-full sm:w-auto rounded-full border border-black px-8 py-[11px] text-[15px] font-bold tracking-[-0.045em] transition-colors hover:bg-black hover:text-white">
             Learn More
           </button>
-          <button className="min-w-[135px] rounded-full border border-black px-8 py-[11px] text-[15px] font-bold tracking-[-0.045em] transition-colors hover:bg-black hover:text-white">
+          <button className="w-full sm:w-auto rounded-full border border-black px-8 py-[11px] text-[15px] font-bold tracking-[-0.045em] transition-colors hover:bg-black hover:text-white">
             Book Now
           </button>
         </div>

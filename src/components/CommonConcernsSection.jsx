@@ -10,13 +10,13 @@ const CommonConcernsSection = () => {
           Not sure where to begin? Here are some common skin concerns.
         </p>
 
-        <div className="mt-[44px] flex gap-10 overflow-x-auto md:grid md:grid-cols-6 md:overflow-visible">
+        <div className="mt-[44px] flex gap-6 sm:gap-10 overflow-x-auto pb-2 -mx-5 px-5 md:mx-0 md:px-0 md:grid md:grid-cols-3 md:overflow-visible lg:grid-cols-6 no-scrollbar">
           {(concerns || []).map((concern) => (
-            <a key={concern.id} href="#" className="group min-w-[165px]">
+            <a key={concern.id} href="#" className="group min-w-[140px] sm:min-w-[165px] md:min-w-0">
               <img className="aspect-square w-full object-cover" src={concern.image} alt={concern.name} />
-              <div className="mt-[20px] flex items-center gap-3 text-[20px] font-semibold leading-none tracking-[-0.06em] text-[#111827]">
+              <div className="mt-[16px] sm:mt-[20px] flex items-center gap-2 sm:gap-3 text-[17px] sm:text-[20px] font-semibold leading-none tracking-[-0.06em] text-[#111827]">
                 {concern.name}
-                <span className="text-[28px] font-normal leading-none transition-transform group-hover:translate-x-1">&rarr;</span>
+                <span className="text-[24px] sm:text-[28px] font-normal leading-none transition-transform group-hover:translate-x-1">&rarr;</span>
               </div>
             </a>
           ))}

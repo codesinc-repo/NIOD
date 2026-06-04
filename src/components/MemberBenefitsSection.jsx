@@ -22,10 +22,10 @@ const MemberBenefitsSection = () => {
             {marqueeBenefits.map((benefit, index) => (
               <article
                 key={`${benefit.text}-${index}`}
-                className="flex min-w-[340px] items-center gap-6 rounded-[8px] bg-white px-4 py-[15px] shadow-[0_4px_22px_rgba(0,0,0,0.08)] md:min-w-[342px]"
+                className="flex min-w-[min(340px,85vw)] items-center gap-4 sm:gap-6 rounded-[8px] bg-white px-4 py-[15px] shadow-[0_4px_22px_rgba(0,0,0,0.08)] sm:min-w-[340px] md:min-w-[342px]"
               >
-                <img className="h-[89px] w-[89px] rounded-[4px] object-cover" src={benefit.image} alt="" aria-hidden="true" />
-                <p className="text-[17px] leading-[1.35] tracking-[-0.055em] text-[#4b5563]">{benefit.text}</p>
+                <img className="h-[72px] w-[72px] sm:h-[89px] sm:w-[89px] rounded-[4px] object-cover flex-shrink-0" src={benefit.image} alt="" aria-hidden="true" />
+                <p className="text-[15px] sm:text-[17px] leading-[1.35] tracking-[-0.055em] text-[#4b5563]">{benefit.text}</p>
               </article>
             ))}
           </div>

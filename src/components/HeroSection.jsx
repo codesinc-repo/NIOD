@@ -37,7 +37,7 @@ const HeroSection = () => (
       </Link>
     </div>
 
-    <div className="pointer-events-none absolute bottom-[-54px] right-[-18px] z-10 h-[390px] w-[72vw] min-w-[610px] max-w-[980px] md:bottom-[-72px] md:right-[2.5%] md:h-[560px] md:w-[72vw] lg:right-[5.4%]">
+    <div className="pointer-events-none absolute bottom-[-54px] right-[-18px] z-10 hidden sm:block h-[390px] w-[72vw] max-w-[980px] md:bottom-[-72px] md:right-[2.5%] md:h-[560px] md:w-[72vw] lg:right-[5.4%]">
       <div className="absolute left-[18%] top-[-24%] h-[390px] w-[390px] rounded-full bg-[#9b5a25] shadow-[inset_25px_10px_45px_rgba(255,255,255,0.22),inset_-35px_-20px_42px_rgba(0,0,0,0.28),0_12px_18px_rgba(0,0,0,0.15)] md:h-[520px] md:w-[520px]">
         <div className="absolute inset-[5%] rounded-full border-[2px] border-[#6a3d1f]/35" />
         <div className="absolute inset-0 rounded-full opacity-45 [background:repeating-radial-gradient(ellipse_at_center,transparent_0_12px,rgba(45,25,12,0.22)_13px_15px)]" />

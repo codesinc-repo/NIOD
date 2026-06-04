@@ -1,5 +1,24 @@
 @import "tailwindcss";
 
+/* Global responsive guards — prevents stray fixed widths / absolute elements
+   from triggering horizontal scroll on small viewports. */
+html, body {
+  max-width: 100%;
+  overflow-x: clip;
+}
+
+img, video {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Slightly bigger touch targets on coarse pointers (phones/tablets). */
+@media (pointer: coarse) {
+  button, [role="button"], a {
+    min-height: 36px;
+  }
+}
+
 .no-scrollbar {
   -ms-overflow-style: none;
   scrollbar-width: none;
@@ -70,8 +89,8 @@
 .loader-scene {
   position: relative;
   z-index: 1;
-  width: 210px;
-  height: 250px;
+  width: min(210px, 78vw);
+  height: min(250px, 92vw);
   perspective: 850px;
 }
 

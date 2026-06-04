@@ -26,9 +26,9 @@ const SocialSection = ({ cards }) => {
       <div className="mx-auto max-w-[1200px] overflow-hidden px-5 md:px-9">
         <h2 className="text-[30px] font-black leading-none tracking-[-0.065em]">As Seen on Social</h2>
 
-        <div ref={carouselRef} className="no-scrollbar mt-[49px] flex gap-10 overflow-x-auto scroll-smooth pb-2">
+        <div ref={carouselRef} className="no-scrollbar mt-[36px] sm:mt-[49px] flex gap-5 sm:gap-10 overflow-x-auto scroll-smooth pb-2 -mx-5 px-5 md:mx-0 md:px-0">
           {cards.map((card) => (
-            <article key={card.id || card.title} className="w-[min(400px,82vw)] shrink-0 border border-[#d7d7d7] bg-white md:w-[400px]">
+            <article key={card.id || card.title} className="w-[min(320px,85vw)] sm:w-[min(380px,82vw)] md:w-[400px] shrink-0 border border-[#d7d7d7] bg-white">
               <div className="relative h-[342px] overflow-hidden bg-[#e8e8e8] md:h-[355px]">
                 <img className="h-full w-full object-cover" src={card.image} alt={card.title} />
                 <button
