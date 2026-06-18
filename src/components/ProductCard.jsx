@@ -36,7 +36,7 @@ const ProductCard = ({ product }) => {
     : <>{children}</>;
 
   return (
-    <article className="w-full min-w-0 text-[#252525]">
+    <article className="flex h-full w-full min-w-0 flex-col text-[#252525]">
       <ImageWrap>
         <div className="relative flex aspect-square items-center justify-center bg-[#f8f8f8] cursor-pointer">
           {product.tag && (
@@ -64,7 +64,8 @@ const ProductCard = ({ product }) => {
         <span>{ratingDisplay}</span>
       </div>
       <p className="mt-2 min-h-[36px] text-[15px] leading-[1.25] tracking-[-0.045em] text-[#666]">{product.benefit}</p>
-      <div className="mt-[37px] border-t border-[#dcdcdc] pt-[23px]">
+      <div className="mt-auto min-h-[37px]" aria-hidden="true" />
+      <div className="border-t border-[#dcdcdc] pt-[23px]">
         <div className="flex items-center justify-between gap-4">
           <p className="text-[17px] font-black tracking-[-0.045em]">{priceDisplay}</p>
           {sizes.length > 0 && (
