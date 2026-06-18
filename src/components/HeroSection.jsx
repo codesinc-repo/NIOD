@@ -1,94 +1,87 @@
 import { Link } from 'react-router-dom';
-import logoUrl from '../assets/logops.png';
+import landingImg from '../assets/landingImg.png';
 
-const ProductLabel = ({ className = '', children }) => (
-  <div
-    className={`absolute rounded-[9px] bg-white/95 border border-black/5 shadow-[0_10px_22px_rgba(0,0,0,0.16)] overflow-hidden ${className}`}
-  >
-    <div className="px-4 py-3 text-[clamp(13px,1.8vw,22px)] font-black leading-[1] tracking-[-0.04em] text-black">
-      {children}
-    </div>
-    <div className="h-[8px] bg-[#2e7d32]/15 border-y border-black/5" />
-    <div className="h-10 bg-white/70" />
-  </div>
+const LeafIcon = (props) => (
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round" {...props}>
+    <path d="M5 21c0-9 6-15 16-16-.5 8-5 16-16 16Z" />
+    <path d="M5 21c4-6 8-9 14-12" />
+  </svg>
 );
 
+const BeakerIcon = (props) => (
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round" {...props}>
+    <path d="M9 3h6" />
+    <path d="M10 3v5.5L4.6 18a2 2 0 0 0 1.7 3h11.4a2 2 0 0 0 1.7-3L14 8.5V3" />
+    <path d="M7 14h10" />
+  </svg>
+);
+
+const HandLeafIcon = (props) => (
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round" {...props}>
+    <path d="M12 3c-2 3-3 5-3 7a3 3 0 0 0 6 0c0-2-1-4-3-7Z" />
+    <path d="M3 14c2 0 3 1 3 3v1a3 3 0 0 0 3 3h6a3 3 0 0 0 3-3v-1c0-2 1-3 3-3" />
+  </svg>
+);
+
+const GlobeIcon = (props) => (
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round" {...props}>
+    <circle cx="12" cy="12" r="9" />
+    <path d="M3 12h18" />
+    <path d="M12 3a14 14 0 0 1 0 18" />
+    <path d="M12 3a14 14 0 0 0 0 18" />
+  </svg>
+);
+
+const BADGES = [
+  { Icon: LeafIcon,     label: '100% Natural' },
+  { Icon: BeakerIcon,   label: 'Chemical Free' },
+  { Icon: HandLeafIcon, label: 'Sustainable' },
+  { Icon: GlobeIcon,    label: 'Eco Friendly' },
+];
+
 const HeroSection = () => (
-  <section className="relative overflow-hidden bg-[#fefaf3] font-['Inter',sans-serif] min-h-[560px] md:min-h-[520px]">
-    {/* Decorative background gradient */}
-    <div className="absolute inset-0 bg-[radial-gradient(circle_at_85%_25%,rgba(214,86,76,0.06),transparent_45%),radial-gradient(circle_at_15%_85%,rgba(46,125,50,0.08),transparent_45%)]" />
+  <section className="relative overflow-hidden bg-white font-['Inter',sans-serif]">
+    <div className="relative mx-auto grid max-w-[1500px] grid-cols-1 items-stretch md:grid-cols-[minmax(0,1fr)_minmax(0,1.15fr)]">
+      <div className="flex flex-col justify-center px-6 py-12 md:px-[5%] md:py-16 lg:py-20">
+        <div className="max-w-[520px] text-[#1b3a22]">
+          <h1 className="text-[clamp(30px,4vw,48px)] font-extrabold leading-[1.05] tracking-[-0.025em] text-[#1b4423]">
+            Pure by Nature,
+            <br />
+            Made with Care.
+          </h1>
 
-    <div className="relative z-20 mx-auto max-w-[1366px] grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 items-center px-6 md:px-[5%] py-12 md:py-20">
-      {/* Left: logo + tagline + CTA */}
-      <div className="text-[#222] max-w-[560px]">
-        <img
-          src={logoUrl}
-          alt="Pareshey Organics"
-          width={400}
-          height={230}
-          style={{ height: 'clamp(120px, 18vw, 180px)', width: 'auto', maxHeight: 200 }}
-          className="object-contain"
-        />
-        <h1 className="mt-4 text-[clamp(26px,3.4vw,40px)] font-black leading-[1.1] tracking-[-0.04em] text-[#1a3823]">
-          Clean rituals,
-          <br />
-          rooted in nature.
-        </h1>
-        <p className="mt-5 text-[15px] md:text-[17px] font-normal leading-[1.5] tracking-[-0.02em] text-[#444] max-w-[480px]">
-          Hand-blended organic skincare — dermatologist-tested, cruelty-free, delivered fresh across Pakistan.
-        </p>
+          <span className="mt-4 block h-[2px] w-12 rounded-full bg-[#1b4423]/70" aria-hidden="true" />
 
-        <div className="mt-7 flex flex-col sm:flex-row gap-3">
+          <p className="mt-5 max-w-[420px] text-[15px] leading-[1.65] text-[#3a4a3f] md:text-[16px]">
+            Pareshey Organics brings you the finest range of natural and organic products for a healthier you and a better planet.
+          </p>
+
           <Link
             to="/category/best-sellers"
-            className="inline-flex items-center justify-center rounded-full bg-[#1a3823] text-white px-7 py-3 text-[15px] font-semibold tracking-tight hover:bg-[#0f2415] transition-colors"
+            className="mt-7 inline-flex items-center gap-2 rounded-full bg-[#1b4423] px-7 py-3 text-[15px] font-semibold text-white transition-colors hover:bg-[#0f2c16]"
           >
-            Shop the rituals →
+            Shop Now <span aria-hidden="true">→</span>
           </Link>
-          <Link
-            to="/about"
-            className="inline-flex items-center justify-center rounded-full border border-[#1a3823] text-[#1a3823] px-7 py-3 text-[15px] font-semibold tracking-tight hover:bg-[#1a3823] hover:text-white transition-colors"
-          >
-            Our story
-          </Link>
-        </div>
 
-        <ul className="mt-8 flex flex-wrap gap-x-5 gap-y-1 text-[12px] uppercase tracking-widest text-[#5a7c5a] font-semibold">
-          <li>· 100% Organic actives</li>
-          <li>· Cruelty-free</li>
-          <li>· COD across Pakistan</li>
-        </ul>
+          <ul className="mt-10 grid max-w-[420px] grid-cols-4 gap-4 text-center">
+            {BADGES.map(({ Icon, label }) => (
+              <li key={label} className="flex flex-col items-center gap-2">
+                <span className="flex h-[50px] w-[50px] items-center justify-center rounded-full border border-[#1b4423]/70 text-[#1b4423]">
+                  <Icon className="h-6 w-6" />
+                </span>
+                <span className="text-[12px] font-medium leading-tight text-[#1b3a22]">{label}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
       </div>
 
-      {/* Right: abstract product shapes */}
-      <div className="relative hidden md:block h-[480px]">
-        {/* Brown circle (turmeric) */}
-        <div className="absolute left-[10%] top-[5%] h-[300px] w-[300px] lg:h-[360px] lg:w-[360px] rounded-full bg-[#9b5a25] shadow-[inset_25px_10px_45px_rgba(255,255,255,0.22),inset_-35px_-20px_42px_rgba(0,0,0,0.28),0_12px_18px_rgba(0,0,0,0.15)]">
-          <div className="absolute inset-[5%] rounded-full border-[2px] border-[#6a3d1f]/35" />
-          <div className="absolute inset-0 rounded-full opacity-45 [background:repeating-radial-gradient(ellipse_at_center,transparent_0_12px,rgba(45,25,12,0.22)_13px_15px)]" />
-        </div>
-
-        {/* Green leaf (botanical) */}
-        <div className="absolute right-[5%] top-[2%] h-[280px] w-[200px] lg:h-[340px] lg:w-[240px] rotate-[8deg] rounded-[52%_48%_45%_55%/62%_62%_38%_38%] bg-[#2e7d32] shadow-[inset_24px_12px_34px_rgba(255,255,255,0.25),inset_-25px_-20px_30px_rgba(0,0,0,0.25),0_12px_20px_rgba(0,0,0,0.12)]">
-          <div className="absolute inset-0 rounded-[inherit] opacity-45 [background:radial-gradient(circle_at_32%_24%,#d8e0b4_0_2px,transparent_3px),radial-gradient(circle_at_72%_52%,#d7e0b0_0_2px,transparent_3px)] [background-size:18px_18px,22px_22px]" />
-          <div className="absolute left-1/2 top-[-4px] h-7 w-10 -translate-x-1/2 rounded-full bg-[#8a673d]" />
-        </div>
-
-        {/* Yellow honey bar */}
-        <div className="absolute bottom-[8%] left-0 right-0 mx-auto h-[70px] w-[80%] -rotate-[5deg] rounded-[999px] bg-[#f6ce38] shadow-[inset_8px_22px_24px_rgba(255,255,255,0.32),inset_-18px_-18px_25px_rgba(163,110,6,0.24),0_12px_18px_rgba(0,0,0,0.16)]">
-          <div className="absolute left-[-2%] top-[14%] h-[40px] w-[68px] rotate-[38deg] rounded-full bg-[#d4d453]" />
-        </div>
-
-        {/* Product labels */}
-        <ProductLabel className="left-[8%] top-[18%] w-[200px] lg:w-[230px] -rotate-[6deg]">
-          Cold-pressed<br />Turmeric & Honey
-        </ProductLabel>
-        <ProductLabel className="right-[2%] top-[35%] w-[170px] lg:w-[200px] rotate-[5deg]">
-          Damask Rose<br />Toner
-        </ProductLabel>
-        <ProductLabel className="bottom-[20%] left-[35%] w-[180px] lg:w-[210px] rotate-[8deg]">
-          Saffron Night<br />Cream
-        </ProductLabel>
+      <div className="flex items-center justify-center md:justify-end">
+        <img
+          src={landingImg}
+          alt="Pareshey Organics skincare range"
+          className="block h-auto w-full max-w-[640px]"
+        />
       </div>
     </div>
   </section>

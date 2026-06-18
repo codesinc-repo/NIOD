@@ -28,14 +28,23 @@ const Header = () => {
 
   return (
     <header className="w-full font-['Inter',sans-serif] bg-white relative z-50">
-      <div className="bg-black text-white py-[10px] px-4 md:px-6 flex items-center justify-between">
+      <div className="bg-[#0f3d1f] text-white py-[10px] px-4 md:px-6 flex items-center justify-between">
         <div className="hidden md:flex flex-1"></div>
-        <div className="flex flex-1 md:flex-none items-center justify-center md:justify-start gap-4 md:gap-6">
-          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="cursor-pointer opacity-80"><path d="m15 18-6-6 6-6" /></svg>
-          <span className="text-[9.5px] md:text-[11px] font-bold tracking-[0.2em] uppercase text-center">
-            Cash on Delivery available across Pakistan.
+        <div className="flex flex-1 md:flex-none items-center justify-center md:justify-start gap-3 md:gap-6 text-[10px] md:text-[12px] font-medium tracking-[0.04em]">
+          <span className="flex items-center gap-1.5">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round"><path d="M1 3h13v13H1z" /><path d="M14 8h4l3 3v5h-7" /><circle cx="6" cy="19" r="2" /><circle cx="17" cy="19" r="2" /></svg>
+            Free shipping on orders above Rs. 2000
           </span>
-          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="cursor-pointer opacity-80"><path d="m9 18 6-6-6-6" /></svg>
+          <span className="opacity-50">|</span>
+          <span className="hidden sm:flex items-center gap-1.5">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round"><path d="M5 21c0-9 6-15 16-16-.5 8-5 16-16 16Z" /><path d="M5 21c4-6 8-9 14-12" /></svg>
+            100% Natural
+          </span>
+          <span className="hidden sm:inline opacity-50">|</span>
+          <span className="hidden sm:flex items-center gap-1.5">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round"><path d="M9 3h6" /><path d="M10 3v5.5L4.6 18a2 2 0 0 0 1.7 3h11.4a2 2 0 0 0 1.7-3L14 8.5V3" /></svg>
+            Chemical Free
+          </span>
         </div>
         <div className="flex-1 flex justify-end items-center gap-5 md:gap-7">
           <Link to="/" className="hidden sm:block text-white hover:opacity-70" title="Home">

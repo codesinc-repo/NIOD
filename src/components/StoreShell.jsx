@@ -1,6 +1,5 @@
 import Header from './Header';
 import Footer from './Footer';
-import ChatButton from './ChatButton';
 
 export default function StoreShell({ children, hideFooter = false }) {
   return (
@@ -8,7 +7,6 @@ export default function StoreShell({ children, hideFooter = false }) {
       <Header />
       {children}
       {!hideFooter && <Footer />}
-      <ChatButton />
     </div>
   );
 }
