@@ -3,6 +3,7 @@ import { Link, NavLink, useNavigate } from 'react-router-dom';
 import { useCart } from '../lib/CartContext';
 import { useAuth } from '../lib/AuthContext';
 import logoUrl from '../assets/logops.png';
+import HeaderSearch from './HeaderSearch';
 
 const NAV_LINKS = [
   { to: '/',                                label: 'Home',             end: true },
@@ -17,6 +18,7 @@ const NAV_LINKS = [
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [userMenuOpen, setUserMenuOpen] = useState(false);
+  const [searchOpen, setSearchOpen] = useState(false);
   const { count } = useCart();
   const { user, logout } = useAuth();
   const navigate = useNavigate();
@@ -28,9 +30,8 @@ const Header = () => {
 
   return (
     <header className="w-full font-['Inter',sans-serif] bg-white relative z-50">
-      <div className="bg-[#0f3d1f] text-white py-[10px] px-4 md:px-6 flex items-center justify-between">
-        <div className="hidden md:flex flex-1"></div>
-        <div className="flex flex-1 md:flex-none items-center justify-center md:justify-start gap-3 md:gap-6 text-[10px] md:text-[12px] font-medium tracking-[0.04em]">
+      <div className="bg-[#0f3d1f] text-white py-[10px] px-4 md:px-6 flex items-center justify-center">
+        <div className="flex items-center justify-center gap-3 md:gap-6 text-[10px] md:text-[12px] font-medium tracking-[0.04em]">
           <span className="flex items-center gap-1.5">
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round"><path d="M1 3h13v13H1z" /><path d="M14 8h4l3 3v5h-7" /><circle cx="6" cy="19" r="2" /><circle cx="17" cy="19" r="2" /></svg>
             Free shipping on orders above Rs. 2000
@@ -45,34 +46,6 @@ const Header = () => {
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round"><path d="M9 3h6" /><path d="M10 3v5.5L4.6 18a2 2 0 0 0 1.7 3h11.4a2 2 0 0 0 1.7-3L14 8.5V3" /></svg>
             Chemical Free
           </span>
-        </div>
-        <div className="flex-1 flex justify-end items-center gap-5 md:gap-7">
-          <Link to="/" className="hidden sm:block text-white hover:opacity-70" title="Home">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2Z" /></svg>
-          </Link>
-
-          <div className="relative">
-            <button onClick={onUser} className="text-white hover:opacity-70 flex items-center" title={user ? user.email : 'Sign in'}>
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2" /><circle cx="12" cy="7" r="4" /></svg>
-            </button>
-            {user && userMenuOpen && (
-              <div className="absolute right-0 mt-2 w-56 bg-white text-neutral-900 rounded-xl border border-neutral-200 shadow-lg overflow-hidden">
-                <div className="px-4 py-3 border-b border-neutral-100">
-                  <div className="text-sm font-medium truncate">{user.name}</div>
-                  <div className="text-xs text-neutral-500 truncate">{user.email}</div>
-                </div>
-                <Link to="/account" onClick={() => setUserMenuOpen(false)} className="block px-4 py-2.5 text-sm hover:bg-neutral-50">Account</Link>
-                <Link to="/account/orders" onClick={() => setUserMenuOpen(false)} className="block px-4 py-2.5 text-sm hover:bg-neutral-50">Orders</Link>
-                <Link to="/account/wishlist" onClick={() => setUserMenuOpen(false)} className="block px-4 py-2.5 text-sm hover:bg-neutral-50">Wishlist</Link>
-                <button onClick={() => { setUserMenuOpen(false); logout(); navigate('/'); }} className="block w-full text-left px-4 py-2.5 text-sm hover:bg-neutral-50 border-t border-neutral-100">Sign out</button>
-              </div>
-            )}
-          </div>
-
-          <Link to="/cart" className="relative text-white hover:opacity-70" title="Cart">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z" /><path d="M3 6h18" /><path d="M16 10a4 4 0 0 1-8 0" /></svg>
-            <span className="absolute -top-2 -right-2 min-w-[18px] h-[18px] bg-white text-black rounded-full text-[10px] font-bold flex items-center justify-center px-1">{count}</span>
-          </Link>
         </div>
       </div>
 
@@ -106,11 +79,42 @@ const Header = () => {
             ))}
           </nav>
 
-          <Link to="/category/best-sellers" className="hidden md:inline-flex border border-black rounded-full px-5 lg:px-8 py-2 lg:py-3 text-[13px] lg:text-[15px] font-bold hover:bg-black hover:text-white transition-all duration-300 whitespace-nowrap">
-            Shop now
-          </Link>
+          <div className="hidden md:flex items-center gap-5 lg:gap-6 shrink-0 text-[#1f2937]">
+            <button type="button" aria-label="Search" onClick={() => setSearchOpen((v) => !v)} className="hover:opacity-60 transition-opacity">
+              {searchOpen ? (
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><path d="M18 6 6 18" /><path d="m6 6 12 12" /></svg>
+              ) : (
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round"><circle cx="11" cy="11" r="7" /><path d="m20 20-3.5-3.5" /></svg>
+              )}
+            </button>
+
+            <div className="relative">
+              <button onClick={onUser} aria-label={user ? user.email : 'Sign in'} className="flex items-center hover:opacity-60 transition-opacity">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2" /><circle cx="12" cy="7" r="4" /></svg>
+              </button>
+              {user && userMenuOpen && (
+                <div className="absolute right-0 mt-2 w-56 bg-white text-neutral-900 rounded-xl border border-neutral-200 shadow-lg overflow-hidden">
+                  <div className="px-4 py-3 border-b border-neutral-100">
+                    <div className="text-sm font-medium truncate">{user.name}</div>
+                    <div className="text-xs text-neutral-500 truncate">{user.email}</div>
+                  </div>
+                  <Link to="/account" onClick={() => setUserMenuOpen(false)} className="block px-4 py-2.5 text-sm hover:bg-neutral-50">Account</Link>
+                  <Link to="/account/orders" onClick={() => setUserMenuOpen(false)} className="block px-4 py-2.5 text-sm hover:bg-neutral-50">Orders</Link>
+                  <Link to="/account/wishlist" onClick={() => setUserMenuOpen(false)} className="block px-4 py-2.5 text-sm hover:bg-neutral-50">Wishlist</Link>
+                  <button onClick={() => { setUserMenuOpen(false); logout(); navigate('/'); }} className="block w-full text-left px-4 py-2.5 text-sm hover:bg-neutral-50 border-t border-neutral-100">Sign out</button>
+                </div>
+              )}
+            </div>
+
+            <Link to="/cart" className="relative hover:opacity-60 transition-opacity" aria-label="Cart">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z" /><path d="M3 6h18" /><path d="M16 10a4 4 0 0 1-8 0" /></svg>
+              <span className="absolute -top-2 -right-2 min-w-[18px] h-[18px] bg-[#0f3d1f] text-white rounded-full text-[10px] font-bold flex items-center justify-center px-1">{count}</span>
+            </Link>
+          </div>
         </div>
       </div>
+
+      <HeaderSearch open={searchOpen} onClose={() => setSearchOpen(false)} />
 
       {isMenuOpen && (
         <div className="absolute top-full left-0 w-full bg-white border-t border-gray-100 shadow-2xl md:hidden py-4 flex flex-col items-stretch md:hidden">
