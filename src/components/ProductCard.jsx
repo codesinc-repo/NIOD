@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { useCart } from '../lib/CartContext';
 import { formatMoney } from '../lib/format';
 
@@ -8,6 +8,7 @@ import { formatMoney } from '../lib/format';
 //  - API product (number price, sizes: [{id,label}], slug, currency, rating_count)
 const ProductCard = ({ product }) => {
   const { add } = useCart();
+  const navigate = useNavigate();
   const sizes = product.sizes || [];
   const isApiSize = sizes.length > 0 && typeof sizes[0] === 'object';
   const [sizeId, setSizeId] = useState(isApiSize ? sizes[0]?.id : null);
@@ -29,6 +30,14 @@ const ProductCard = ({ product }) => {
       setTimeout(() => setAdded(false), 1800);
     } catch { /* swallow */ }
     finally { setAdding(false); }
+  }
+
+  async function onBuyNow() {
+    if (!product.id) return;
+    try {
+      await add(product.id, 1, sizeId);
+      navigate('/checkout');
+    } catch { /* swallow */ }
   }
 
   const ImageWrap = ({ children }) => detailHref
@@ -85,10 +94,16 @@ const ProductCard = ({ product }) => {
             </div>
           )}
         </div>
-        <button type="button" onClick={onAdd} disabled={adding || !product.id}
-          className="mt-[25px] h-11 w-full border border-[#d9d9d9] bg-white text-[16px] font-medium tracking-[-0.055em] transition-colors hover:border-black disabled:opacity-60">
-          {added ? 'Added ✓' : adding ? 'Adding…' : 'Add To Cart'}
-        </button>
+        <div className="mt-[25px] grid grid-cols-2 gap-2">
+          <button type="button" onClick={onAdd} disabled={adding || !product.id}
+            className="h-11 border border-[#d9d9d9] bg-white text-[14px] font-medium tracking-[-0.055em] transition-colors hover:border-black disabled:opacity-60 cursor-pointer">
+            {added ? 'Added ✓' : adding ? 'Adding…' : 'Add To Cart'}
+          </button>
+          <button type="button" onClick={onBuyNow} disabled={!product.id}
+            className="h-11 bg-[#1b4423] text-white text-[14px] font-medium tracking-[-0.055em] transition-colors hover:bg-[#0f2c16] disabled:opacity-60 cursor-pointer">
+            Buy Now
+          </button>
+        </div>
       </div>
     </article>
   );

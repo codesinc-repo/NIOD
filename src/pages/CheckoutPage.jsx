@@ -6,6 +6,7 @@ import { useAuth } from '../lib/AuthContext';
 import { api } from '../lib/api';
 import { useApi } from '../lib/hooks';
 import { formatMoney } from '../lib/format';
+import easypaisaLogo from '../assets/easypaisa.jfif';
 
 export default function CheckoutPage() {
   const { cart, clear } = useCart();
@@ -118,10 +119,9 @@ export default function CheckoutPage() {
                 <input required placeholder="Full name" value={form.full_name} onChange={(e) => set({ full_name: e.target.value })} className="w-full px-3 py-2.5 border border-neutral-300 rounded-lg text-sm" />
                 <input required placeholder="Address line 1" value={form.line1} onChange={(e) => set({ line1: e.target.value })} className="w-full px-3 py-2.5 border border-neutral-300 rounded-lg text-sm" />
                 <input placeholder="Apartment, suite, etc. (optional)" value={form.line2} onChange={(e) => set({ line2: e.target.value })} className="w-full px-3 py-2.5 border border-neutral-300 rounded-lg text-sm" />
-                <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3">
+                <div className="grid grid-cols-2 gap-3">
                   <input required placeholder="City" value={form.city} onChange={(e) => set({ city: e.target.value })} className="w-full px-3 py-2.5 border border-neutral-300 rounded-lg text-sm" />
                   <input placeholder="State / Province" value={form.state} onChange={(e) => set({ state: e.target.value })} className="w-full px-3 py-2.5 border border-neutral-300 rounded-lg text-sm" />
-                  <input placeholder="Postal code" value={form.postal_code} onChange={(e) => set({ postal_code: e.target.value })} className="w-full px-3 py-2.5 border border-neutral-300 rounded-lg text-sm" />
                 </div>
                 <select value={form.country} onChange={(e) => set({ country: e.target.value })} className="w-full px-3 py-2.5 border border-neutral-300 rounded-lg text-sm bg-white">
                   <option value="PK">Pakistan</option>
@@ -144,12 +144,16 @@ export default function CheckoutPage() {
                     <div className="text-xs text-neutral-500">Pay the rider when your order arrives.</div>
                   </div>
                 </label>
-
                 <label className="flex items-start gap-3 border border-neutral-300 rounded-lg px-4 py-3 cursor-pointer">
-                  <div>
-                    <div className="text-sm font-medium">Easypaisa (Advance Cash)</div>
-                    <div className="text-xs text-neutral-500 mt-1">
-                      Send advance payment to <strong className="text-base font-bold text-neutral-900 block my-1">03002116104</strong>
+
+                  <div className="flex items-start gap-3 flex-1">
+                    <img src={easypaisaLogo} alt="Easypaisa" className="w-10 h-10 rounded object-cover flex-shrink-0 mt-0.5" />
+                    <div>
+                      <div className="text-sm font-medium">Easypaisa</div>
+                      <div className="text-xs text-neutral-500 mt-0.5">Account: <span className="font-medium text-neutral-700">Muhammad Shahbaz</span></div>
+                      <div className="text-xs text-neutral-500 mt-0.5">
+                        <strong className="text-base font-bold text-neutral-900 block my-1">03002116104</strong>
+                      </div>
                     </div>
                   </div>
                 </label>
