@@ -136,13 +136,24 @@ export default function CheckoutPage() {
 
             <section>
               <h2 className="font-medium mb-3">Payment method</h2>
-              <label className="flex items-start gap-3 border border-neutral-300 rounded-lg px-4 py-3 cursor-pointer">
-                <input type="radio" name="payment_method" value="cod" checked={form.payment_method === 'cod'} onChange={() => set({ payment_method: 'cod' })} />
-                <div>
-                  <div className="text-sm font-medium">Cash on Delivery</div>
-                  <div className="text-xs text-neutral-500">Pay the rider when your order arrives.</div>
-                </div>
-              </label>
+              <div className="space-y-3">
+                <label className="flex items-start gap-3 border border-neutral-300 rounded-lg px-4 py-3 cursor-pointer">
+                  <input type="radio" name="payment_method" value="cod" checked={form.payment_method === 'cod'} onChange={() => set({ payment_method: 'cod' })} />
+                  <div>
+                    <div className="text-sm font-medium">Cash on Delivery</div>
+                    <div className="text-xs text-neutral-500">Pay the rider when your order arrives.</div>
+                  </div>
+                </label>
+
+                <label className="flex items-start gap-3 border border-neutral-300 rounded-lg px-4 py-3 cursor-pointer">
+                  <div>
+                    <div className="text-sm font-medium">Easypaisa (Advance Cash)</div>
+                    <div className="text-xs text-neutral-500 mt-1">
+                      Send advance payment to <strong className="text-base font-bold text-neutral-900 block my-1">03002116104</strong>
+                    </div>
+                  </div>
+                </label>
+              </div>
             </section>
 
             <section>
@@ -182,7 +193,11 @@ export default function CheckoutPage() {
             </div>
             {error && <div className="mt-3 text-sm text-red-600">{error}</div>}
             <button disabled={submitting} className="mt-5 w-full bg-black text-white py-3 rounded-full text-sm font-medium hover:bg-neutral-800 disabled:opacity-60">{submitting ? 'Placing order…' : `Place order · ${formatMoney(grand)}`}</button>
-            <p className="mt-3 text-[11px] text-neutral-500 text-center">You will pay in cash at the time of delivery.</p>
+            <p className="mt-3 text-[11px] text-neutral-500 text-center">
+              {form.payment_method === 'easypaisa'
+                ? 'Please send the advance payment to Easypaisa number 03002116104 and include your order details.'
+                : 'You will pay in cash at the time of delivery.'}
+            </p>
           </aside>
         </form>
       </div>
